@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3623B9492B5333DF00D29676 /* RMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3623B9482B5333DF00D29676 /* RMRequest.swift */; };
 		3623B94B2B5334ED00D29676 /* RMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3623B94A2B5334ED00D29676 /* RMEndpoint.swift */; };
+		3623B94D2B5339AE00D29676 /* RMOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3623B94C2B5339AE00D29676 /* RMOrigin.swift */; };
+		3623B94F2B533A2D00D29676 /* RMSingleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3623B94E2B533A2D00D29676 /* RMSingleLocation.swift */; };
+		3623B9512B533B1B00D29676 /* RMCharacterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3623B9502B533B1B00D29676 /* RMCharacterStatus.swift */; };
+		3623B9532B533B6000D29676 /* RMCharacterGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3623B9522B533B6000D29676 /* RMCharacterGender.swift */; };
 		3624DEE12B4EF1640018D4F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624DEE02B4EF1640018D4F5 /* AppDelegate.swift */; };
 		3624DEE32B4EF1640018D4F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624DEE22B4EF1640018D4F5 /* SceneDelegate.swift */; };
 		3624DEE52B4EF1640018D4F5 /* RMTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624DEE42B4EF1640018D4F5 /* RMTabBarViewController.swift */; };
@@ -27,6 +31,10 @@
 /* Begin PBXFileReference section */
 		3623B9482B5333DF00D29676 /* RMRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMRequest.swift; sourceTree = "<group>"; };
 		3623B94A2B5334ED00D29676 /* RMEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEndpoint.swift; sourceTree = "<group>"; };
+		3623B94C2B5339AE00D29676 /* RMOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMOrigin.swift; sourceTree = "<group>"; };
+		3623B94E2B533A2D00D29676 /* RMSingleLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSingleLocation.swift; sourceTree = "<group>"; };
+		3623B9502B533B1B00D29676 /* RMCharacterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterStatus.swift; sourceTree = "<group>"; };
+		3623B9522B533B6000D29676 /* RMCharacterGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterGender.swift; sourceTree = "<group>"; };
 		3624DEDD2B4EF1640018D4F5 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3624DEE02B4EF1640018D4F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3624DEE22B4EF1640018D4F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +108,10 @@
 				36D5DA402B4EF55E005D16D0 /* RMLocation.swift */,
 				36D5DA422B4EF577005D16D0 /* RMCharacter.swift */,
 				36D5DA442B4EF585005D16D0 /* RMEpisode.swift */,
+				3623B94C2B5339AE00D29676 /* RMOrigin.swift */,
+				3623B94E2B533A2D00D29676 /* RMSingleLocation.swift */,
+				3623B9502B533B1B00D29676 /* RMCharacterStatus.swift */,
+				3623B9522B533B6000D29676 /* RMCharacterGender.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,6 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3623B94D2B5339AE00D29676 /* RMOrigin.swift in Sources */,
+				3623B94F2B533A2D00D29676 /* RMSingleLocation.swift in Sources */,
+				3623B9512B533B1B00D29676 /* RMCharacterStatus.swift in Sources */,
+				3623B9532B533B6000D29676 /* RMCharacterGender.swift in Sources */,
 				36D5DA4A2B4EF654005D16D0 /* RMLocationViewController.swift in Sources */,
 				36D5DA452B4EF585005D16D0 /* RMEpisode.swift in Sources */,
 				3624DEE52B4EF1640018D4F5 /* RMTabBarViewController.swift in Sources */,
