@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CharacterListViewViewModel: NSObject {
+final class RMCharacterListViewViewModel: NSObject {
     func fetchCharacters() {
         RMService.shared.execute(
             RMRequest.listCharactersRequest, expecting: RMGetAllCharactersResponse.self
@@ -22,7 +22,7 @@ final class CharacterListViewViewModel: NSObject {
     }
 }
 
-extension CharacterListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate,
+extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate,
     UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int)
@@ -34,8 +34,19 @@ extension CharacterListViewViewModel: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
         -> UICollectionViewCell
     {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemGreen
+        guard
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier, for: indexPath)
+                as? RMCharacterCollectionViewCell
+        else {
+            fatalError("Unsupported cell")
+        }
+
+        let viewModel = RMCharacterCollectionViewCellViewModel(
+            characterName: "Guowei Lv", characterStatus: .alive,
+            characterImageUrl: URL(
+                string: "https://rickandmortyapi.com/api/character/avatar/20.jpeg"))
+        cell.configure(with: viewModel)
         return cell
     }
 
