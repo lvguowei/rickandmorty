@@ -9,6 +9,7 @@ import UIKit
 
 protocol RMCharacterListViewViewModelDelegate: AnyObject {
     func didLoadInitialCharacters()
+    func didSelectCharacter(_ character: RMCharacter)
 }
 
 final class RMCharacterListViewViewModel: NSObject {
@@ -26,8 +27,12 @@ final class RMCharacterListViewViewModel: NSObject {
             }
         }
     }
+
     private var cellViewModels: [RMCharacterCollectionViewCellViewModel] = []
 
+    private var apiInfo: RMGetAllCharactersResponse.Info? = nil
+
+    /// Fetch initial set of characters
     public func fetchCharacters() {
         RMService.shared.execute(
             RMRequest.listCharactersRequest, expecting: RMGetAllCharactersResponse.self
@@ -35,7 +40,9 @@ final class RMCharacterListViewViewModel: NSObject {
             switch result {
                 case .success(let responseModel):
                     let results = responseModel.results
+                    let info = responseModel.info
                     self?.characters = results
+                    self?.apiInfo = info
                     DispatchQueue.main.async {
                         self?.delegate?.didLoadInitialCharacters()
                     }
@@ -44,8 +51,18 @@ final class RMCharacterListViewViewModel: NSObject {
             }
         }
     }
+
+    /// Paginate if additional characters are needed
+    public func fetchAdditionalCharacters() {
+
+    }
+
+    public var shouldShowLoadMoreIndicator: Bool {
+        return apiInfo?.next != nil
+    }
 }
 
+// MARK: - CollectionView
 extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate,
     UICollectionViewDelegateFlowLayout
 {
@@ -77,5 +94,21 @@ extension RMCharacterListViewViewModel: UICollectionViewDataSource, UICollection
         let bounds = UIScreen.main.bounds
         let width = (bounds.width - 30) / 2
         return CGSize(width: width, height: width * 1.5)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let character = characters[indexPath.row]
+        delegate?.didSelectCharacter(character)
+    }
+}
+
+// MARK: - ScrollView
+
+extension RMCharacterListViewViewModel: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard shouldShowLoadMoreIndicator else {
+            return
+        }
     }
 }
