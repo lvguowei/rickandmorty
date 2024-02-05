@@ -83,6 +83,14 @@ final class RMCharacterListView: UIView {
 }
 
 extension RMCharacterListView: RMCharacterListViewViewModelDelegate {
+
+    func didLoadMoreCharacters(with newIndexPaths: [IndexPath]) {
+        collectionView.performBatchUpdates {
+            print(newIndexPaths)
+            self.collectionView.insertItems(at: newIndexPaths)
+        }
+    }
+
     func didLoadInitialCharacters() {
         spinner.stopAnimating()
         collectionView.isHidden = false
