@@ -36,6 +36,7 @@
 		36D5DA4C2B4EF66F005D16D0 /* RMEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D5DA4B2B4EF66F005D16D0 /* RMEpisodeViewController.swift */; };
 		36D5DA4E2B4EF683005D16D0 /* RMSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D5DA4D2B4EF683005D16D0 /* RMSettingsViewController.swift */; };
 		36D5DA502B51C1ED005D16D0 /* RMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D5DA4F2B51C1ED005D16D0 /* RMService.swift */; };
+		36EDFA572B76502E0025599D /* RMImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDFA562B76502E0025599D /* RMImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		36D5DA4B2B4EF66F005D16D0 /* RMEpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEpisodeViewController.swift; sourceTree = "<group>"; };
 		36D5DA4D2B4EF683005D16D0 /* RMSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSettingsViewController.swift; sourceTree = "<group>"; };
 		36D5DA4F2B51C1ED005D16D0 /* RMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMService.swift; sourceTree = "<group>"; };
+		36EDFA562B76502E0025599D /* RMImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		3624DEF92B4EF3FA0018D4F5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				36EDFA562B76502E0025599D /* RMImageLoader.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				3624DEE52B4EF1640018D4F5 /* RMTabBarViewController.swift in Sources */,
 				36AE0F102B62E9DC001B1F0F /* RMCharacterCollectionViewCell.swift in Sources */,
 				36D5DA4C2B4EF66F005D16D0 /* RMEpisodeViewController.swift in Sources */,
+				36EDFA572B76502E0025599D /* RMImageLoader.swift in Sources */,
 				36AE0F1B2B6C3CB2001B1F0F /* RMFooterLoaddingCollectionReusableView.swift in Sources */,
 				3624DEE12B4EF1640018D4F5 /* AppDelegate.swift in Sources */,
 				3624DEE32B4EF1640018D4F5 /* SceneDelegate.swift in Sources */,
