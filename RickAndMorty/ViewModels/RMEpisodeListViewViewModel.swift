@@ -19,11 +19,22 @@ final class RMEpisodeListViewViewModel: NSObject {
 
     private var isLoadingMoreEpisodes = false
 
+    private var cellViewModels: [RMCharacterEpisodeCollectionViewCellViewModel] = []
+
+    private var apiInfo: RMGetAllEpisodesResponse.Info? = nil
+
+    private let borderColors: [UIColor] = [
+        .systemBlue, .systemRed, .systemOrange, .systemYellow, .systemPink, .systemCyan,
+        .systemMint,
+    ]
+
     private var episodes: [RMEpisode] = [] {
         didSet {
             for episode in episodes {
                 let viewModel = RMCharacterEpisodeCollectionViewCellViewModel(
-                    episodeDataUrl: URL(string: episode.url))
+                    episodeDataUrl: URL(string: episode.url),
+                    borderColor: borderColors.randomElement() ?? .systemBlue
+                )
 
                 if !cellViewModels.contains(viewModel) {
                     cellViewModels.append(viewModel)
@@ -33,10 +44,6 @@ final class RMEpisodeListViewViewModel: NSObject {
         }
 
     }
-
-    private var cellViewModels: [RMCharacterEpisodeCollectionViewCellViewModel] = []
-
-    private var apiInfo: RMGetAllEpisodesResponse.Info? = nil
 
     /// Fetch initial set of episodes
     public func fetchEpisodes() {
@@ -64,10 +71,8 @@ final class RMEpisodeListViewViewModel: NSObject {
             return
         }
         isLoadingMoreEpisodes = true
-        print("Fetching more episodes")
         guard let request = RMRequest(url: url) else {
             isLoadingMoreEpisodes = false
-            print("Failed to create request")
             return
         }
 
@@ -98,7 +103,6 @@ final class RMEpisodeListViewViewModel: NSObject {
                         self?.isLoadingMoreEpisodes = false
                     }
                 case .failure(let failure):
-                    print(String(describing: failure))
                     strongSelf.isLoadingMoreEpisodes = false
 
             }
@@ -142,9 +146,9 @@ extension RMEpisodeListViewViewModel: UICollectionViewDataSource, UICollectionVi
         _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        let bounds = UIScreen.main.bounds
-        let width = (bounds.width - 30) / 2
-        return CGSize(width: width, height: width * 0.8)
+        let bounds = collectionView.bounds
+        let width = (bounds.width - 20)
+        return CGSize(width: width, height: 100)
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
