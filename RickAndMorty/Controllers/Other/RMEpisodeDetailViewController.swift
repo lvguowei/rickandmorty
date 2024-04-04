@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RMEpisodeDetailViewController: UIViewController {
+class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailViewViewModelDelegate {
 
     private let viewModel: RMEpisodeDetailViewViewModel
 
@@ -28,9 +28,17 @@ class RMEpisodeDetailViewController: UIViewController {
         view.addSubview(detailView)
         addConstraints()
         title = "Episode"
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
+        
+        viewModel.delegate = self
+        viewModel.fetchEpisodeData()
+
+    }
+
+    func didFetchEpisodeDetails() {
+        detailView.configure(with: viewModel)
     }
 
     private func addConstraints() {
@@ -41,10 +49,10 @@ class RMEpisodeDetailViewController: UIViewController {
             detailView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
         ])
     }
-    
+
     @objc
     private func didTapShare() {
-        
+
     }
 
 }
