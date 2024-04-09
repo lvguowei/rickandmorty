@@ -16,6 +16,26 @@ enum RMSettingsOption: CaseIterable {
     case viewSeries
     case viewCode
 
+    var targetUrl: URL? {
+        switch self {
+
+            case .rateApp:
+                return nil
+            case .contactUs:
+                return URL(string: "https://www.lvguowei.me")
+            case .terms:
+                return URL(string: "https://www.lvguowei.me")
+            case .privacy:
+                return URL(string: "https://www.lvguowei.me")
+            case .apiReference:
+                return URL(string: "https://www.lvguowei.me")
+            case .viewSeries:
+                return URL(string: "https://www.lvguowei.me")
+            case .viewCode:
+                return URL(string: "https://www.lvguowei.me")
+        }
+    }
+
     var displayTitle: String {
         switch self {
 

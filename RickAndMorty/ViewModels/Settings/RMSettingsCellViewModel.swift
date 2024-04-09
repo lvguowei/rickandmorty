@@ -11,12 +11,14 @@ struct RMSettingsCellViewModel: Identifiable {
 
     let id = UUID()
 
-    private let type: RMSettingsOption
+    public let type: RMSettingsOption
+    public let onTapHandler: (RMSettingsOption) -> Void
 
     // MARK: - init
 
-    init(type: RMSettingsOption) {
+    init(type: RMSettingsOption, onTapHandler: @escaping (RMSettingsOption) -> Void) {
         self.type = type
+        self.onTapHandler = onTapHandler
     }
 
     // MARK: - public
