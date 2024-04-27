@@ -29,6 +29,11 @@ final class RMLocationViewViewModel {
         }
     }
 
+    public func location(at index: Int) -> RMLocation? {
+        guard index >= locations.count else { return nil }
+        return locations[index]
+    }
+
     // Location response info
     private var apiInfo: RMGetAllLocationsResponse.Info?
 
