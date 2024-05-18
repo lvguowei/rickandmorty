@@ -18,6 +18,7 @@ final class RMLocationViewController: UIViewController, RMLocationViewViewModelD
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(primaryView)
+        view.backgroundColor = .systemBackground
         primaryView.delegate = self
         title = "Locations"
         addSearchButton()
